@@ -139,6 +139,7 @@ Page({
             endTime:  null,
             EndTimeMin:  null,
             isAllday: null,
+            createTime:null,
             taskKey: e
           }
           console.log(createData);

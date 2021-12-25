@@ -4,7 +4,8 @@
  * 修改函数reviseTask
  * 
  * 存放数据同create页面
- * 其他数据都可以变，但时间戳taskKey不变
+ * 其他数据都可以变
+ * 修改页面taskKey可以变化
 */
 var utils = require('../../utils/util');
 Page({
@@ -29,6 +30,7 @@ Page({
       startDays:new Array(),
       StartTimeMin:utils.formatTimeMIN(new Date()),
       EndTimeMin:utils.formatEndTimeMin(new Date()),
+      createTime:"",
       show:false,
       selectList:[],
       text: '',
@@ -65,7 +67,8 @@ Page({
                         endTime: list[i].endTime,
                         EndTimeMin:list[i].EndTimeMin,
                         isAllday:list[i].isAllday,
-                        taskKey:list[i].taskKey
+                        taskKey:list[i].taskKey,
+                        createTime:list[i].createTime
                     })
                 }
             }
@@ -114,9 +117,8 @@ Page({
       })
       console.log(createData);
       //let arr = wx.getStorageSync("test1") || [];
-      
-      console.log(this.data.startDays);
-      var key=this.data.taskKey;
+      var time=this.data.createTime
+      console.log(time);
         for(var i=0;i<this.data.startDays.length;i++)
         {
           var startDay=this.data.startDays[i];
@@ -124,7 +126,7 @@ Page({
           let list = wx.getStorageSync(startDay) || [];
           this.setData({
             ['createData.startDay']:startDay,
-            ['createData.taskKey']:key
+            ['createData.taskKey']:startDay+time
           })
           this.listAdd(list,createData);
           if(list.length===0)

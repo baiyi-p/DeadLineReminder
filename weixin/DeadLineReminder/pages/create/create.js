@@ -86,7 +86,8 @@ Page({
       endTime: this.data.endTime,
       EndTimeMin: this.data.EndTimeMin,
       isAllday: this.data.isAllday,
-      taskKey: this.data.taskKey
+      taskKey: this.data.taskKey,
+      createTime:this.data.createTime
     }
     this.setData({
       createData: createData

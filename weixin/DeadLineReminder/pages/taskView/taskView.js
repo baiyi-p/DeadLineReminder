@@ -71,7 +71,8 @@ Page({
                     endTime: list[i].endTime,
                     EndTimeMin:list[i].EndTimeMin,
                     isAllday:list[i].isAllday,
-                    taskKey:list[i].taskKey
+                    taskKey:list[i].taskKey,
+                    createTime:list[i].createTime
                 })
             }
         }
